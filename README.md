@@ -11,6 +11,18 @@ This is not a coding puzzle repo. It is a governed decision challenge designed t
 3. **Provide evidence** - Justify each decision with concrete evidence
 4. **Halt correctly** - Know when to stop and not over-fix
 
+## What This Proves
+
+Xable Hardmode proves that **admissibility under governance constraints** is required for safe system operation. Success requires:
+
+- **Request → Decision → Execution → Proof**: Every action must follow a traceable path where the decision is admissible under governance rules, the execution is verified, and proof is bound to the final state.
+
+- **Governance constraints are not optional**: Naive fixes that pass ordinary tests will fail adversarial and admissibility checks because they violate governance rules.
+
+- **Evidence is required**: Each ratchet step must produce evidence that the fix satisfies the corresponding admissibility rule.
+
+- **Halting is a decision**: Correct halting means stopping when the halt condition is met, not over-fixing beyond admissibility requirements.
+
 ## Hardmode Rules
 
 - Naive fixes must pass some tests but fail admissibility
@@ -22,6 +34,16 @@ This is not a coding puzzle repo. It is a governed decision challenge designed t
 - No accounts
 - No Stripe
 - Fully local and forkable
+
+## Passing Tests Is Not Enough
+
+Hardmode scenarios are designed so that naive fixes may pass ordinary tests but fail adversarial and admissibility checks. This is intentional: passing unit tests is necessary but not sufficient for admissibility.
+
+- **Ordinary tests** verify basic functionality (e.g., payment executes, refund processes)
+- **Adversarial tests** verify the system resists attack vectors (e.g., duplicate payments, unauthorized refunds)
+- **Admissibility tests** verify governance constraints are satisfied (e.g., authority validation, state verification)
+
+A solution is admissible only when all three test categories pass.
 
 ## Structure
 
@@ -87,3 +109,14 @@ This repo teaches that:
 - Governance rules matter
 - Evidence is required
 - Knowing when to stop is a skill
+
+## Trust Boundary
+
+**Local demo verification is not production authority.**
+
+This repo provides local demo evidence only. Production authority requires signed trusted-gate decisions. Unsigned or local decisions are demo evidence, not production-grade authority.
+
+- Local verification demonstrates understanding of admissibility concepts
+- Production authority requires signed decisions from trusted gates
+- This repo is for learning and demonstration, not for production deployment
+- A system may appear to succeed (tests pass), but Xable enforces that actions are not allowed to exist unless they are admissible

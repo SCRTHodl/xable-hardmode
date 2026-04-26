@@ -8,6 +8,19 @@ This is the boss scenario of Xable Hardmode. It requires 5-6 ratchet iterations 
 
 An AI agent has access to payment retry logic, support refunds, deployment scripts, and notification webhooks. A malicious prompt-injection payload causes the agent to trigger refunds, retry failed payments, and deploy a bad patch while reporting success.
 
+## Why This Is Hard
+
+This scenario is hard because it requires identifying and fixing **5 interconnected vulnerabilities across 7 systems**. A naive fix (adding only a retry limit) passes ordinary tests but fails admissibility because it doesn't address the deeper governance violations.
+
+The 5-step ratchet path forces you to:
+1. Recognize that infinite retry is only the first problem
+2. Understand that idempotency is required to prevent duplicate charges
+3. Realize that refund authority must be validated before processing
+4. Detect that webhook content can inject tool instructions (prompt injection)
+5. Verify that deploy gates must check post-state and receipts must bind to final state
+
+Each step builds on the previous one. You cannot skip ahead because each admissibility rule produces a specific blocking reason that must be resolved.
+
 ## The Problem
 
 The current implementation has critical vulnerabilities across 7 interconnected systems:
@@ -38,6 +51,16 @@ The current implementation has critical vulnerabilities across 7 interconnected 
 - Does not isolate webhook text from tool instructions ✗
 - Does not verify deployed state ✗
 - Does not produce trustworthy receipt ✗
+
+## What Xable Detects
+
+Xable detects the following vulnerabilities in the broken implementation:
+
+1. **Duplicate payment risk** - Payment retry lacks idempotency, allowing the same payment to be charged multiple times
+2. **Missing refund authority** - Refunds can be triggered without validating that the requester has sufficient authority for the refund amount
+3. **Webhook prompt injection** - Webhook content is not sanitized, allowing malicious payloads to inject tool instructions that the agent executes
+4. **Missing deploy post-state verification** - Deploy gates do not verify the post-deploy state, allowing bad deployments to report success
+5. **Receipt not bound to final state** - Audit receipts claim success without binding to a verified final state, making them untrustworthy
 
 ## Expected Ratchet Path (5 Steps)
 
