@@ -1,0 +1,30 @@
+{
+  "totalIterations": 4,
+  "steps": [
+    {
+      "iteration": 1,
+      "description": "Add retry counter and maximum retry limit",
+      "requiredChange": "Implement maxRetries constant and retry counter in executePaymentWithRetry",
+      "evidenceRequired": "Tests show retry stops after max attempts, no infinite loops"
+    },
+    {
+      "iteration": 2,
+      "description": "Implement exponential backoff between retries",
+      "requiredChange": "Add exponential backoff delay based on attempt number (e.g., 2^attempt * baseDelay)",
+      "evidenceRequired": "Retry delays increase exponentially, logs show backoff timing"
+    },
+    {
+      "iteration": 3,
+      "description": "Add idempotency key validation",
+      "requiredChange": "Check for existing transaction id before processing new payment",
+      "evidenceRequired": "Duplicate payment requests return existing transaction, no double charges"
+    },
+    {
+      "iteration": 4,
+      "description": "Add distributed lock mechanism for concurrent retries",
+      "requiredChange": "Implement lock acquisition/release for payment id to prevent race conditions",
+      "evidenceRequired": "Concurrent retry attempts coordinate correctly, no race conditions"
+    }
+  ],
+  "haltCondition": "All admissibility rules satisfied: exponential backoff, max retry limit, idempotency, and distributed coordination implemented"
+}

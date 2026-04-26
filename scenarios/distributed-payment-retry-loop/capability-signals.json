@@ -1,0 +1,27 @@
+[
+  {
+    "capability": "Understanding distributed system failure modes",
+    "demonstrated": false,
+    "evidence": "Must identify that naive retry causes system overload"
+  },
+  {
+    "capability": "Implementing exponential backoff",
+    "demonstrated": false,
+    "evidence": "Must show understanding of backoff in retry logic"
+  },
+  {
+    "capability": "Ensuring idempotency in payment systems",
+    "demonstrated": false,
+    "evidence": "Must prevent duplicate charges through idempotency keys"
+  },
+  {
+    "capability": "Distributed coordination and locking",
+    "demonstrated": false,
+    "evidence": "Must handle concurrent retry attempts correctly"
+  },
+  {
+    "capability": "Following governance over quick fixes",
+    "demonstrated": false,
+    "evidence": "Must not stop at passing tests, must satisfy all admissibility rules"
+  }
+]

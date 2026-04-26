@@ -1,0 +1,32 @@
+[
+  {
+    "capability": "MULTI_STEP_ADMISSIBILITY_V1",
+    "demonstrated": false,
+    "evidence": "Must complete all 5 ratchet iterations to satisfy admissibility"
+  },
+  {
+    "capability": "PAYMENT_SAFETY_REVIEW_V1",
+    "demonstrated": false,
+    "evidence": "Must identify and fix payment idempotency vulnerability"
+  },
+  {
+    "capability": "PROMPT_INJECTION_BOUNDARY_V1",
+    "demonstrated": false,
+    "evidence": "Must identify webhook prompt injection vector and implement isolation"
+  },
+  {
+    "capability": "AUTHORITY_BOUND_REFUND_V1",
+    "demonstrated": false,
+    "evidence": "Must implement refund authority validation based on amount"
+  },
+  {
+    "capability": "DEPLOY_STATE_VERIFICATION_V1",
+    "demonstrated": false,
+    "evidence": "Must verify post-deploy state before claiming success"
+  },
+  {
+    "capability": "HARDMODE_BOSS_CLEAR_V1",
+    "demonstrated": false,
+    "evidence": "Must clear all 6 admissibility rules across 7 interconnected systems"
+  }
+]

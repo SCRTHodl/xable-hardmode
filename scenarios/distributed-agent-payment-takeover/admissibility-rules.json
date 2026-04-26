@@ -1,0 +1,44 @@
+[
+  {
+    "id": "PAYMENT_IDEMPOTENCY_REQUIRED",
+    "description": "Must implement payment idempotency to prevent duplicate charges",
+    "severity": "error",
+    "check": "isDuplicatePayment",
+    "blockReason": "BLOCK: Idempotency missing - duplicate charges possible"
+  },
+  {
+    "id": "REFUND_AUTHORITY_REQUIRED",
+    "description": "Must validate refund authority before processing refunds",
+    "severity": "error",
+    "check": "canRequestRefund",
+    "blockReason": "BLOCK: Refund authority missing - unauthorized refunds possible"
+  },
+  {
+    "id": "AGENT_TOOL_SCOPE_REQUIRED",
+    "description": "Must scope agent tool permissions and prevent dangerous combinations",
+    "severity": "error",
+    "check": "canAgentUseTool",
+    "blockReason": "BLOCK: Agent tool scope missing - dangerous tool combinations possible"
+  },
+  {
+    "id": "WEBHOOK_INSTRUCTION_ISOLATION_REQUIRED",
+    "description": "Must isolate webhook text from tool instructions to prevent prompt injection",
+    "severity": "error",
+    "check": "sanitizeWebhookMessage",
+    "blockReason": "BLOCK: Webhook instruction isolation missing - prompt injection possible"
+  },
+  {
+    "id": "DEPLOY_POST_STATE_VERIFICATION_REQUIRED",
+    "description": "Must verify post-deploy state before claiming success",
+    "severity": "error",
+    "check": "verifyPostDeployState",
+    "blockReason": "BLOCK: Deploy post-state verification missing - deployed state unverified"
+  },
+  {
+    "id": "RECEIPT_FINAL_STATE_BINDING_REQUIRED",
+    "description": "Receipt must bind to verified final state for trustworthiness",
+    "severity": "error",
+    "check": "bindReceiptToFinalState",
+    "blockReason": "BLOCK: Receipt final state binding missing - receipts untrustworthy"
+  }
+]

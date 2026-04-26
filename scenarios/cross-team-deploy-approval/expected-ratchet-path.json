@@ -1,0 +1,30 @@
+{
+  "totalIterations": 4,
+  "steps": [
+    {
+      "iteration": 1,
+      "description": "Add basic approval counting and minimum threshold",
+      "requiredChange": "Implement minimum approval count requirement before allowing deploy",
+      "evidenceRequired": "Deployments rejected without minimum number of approvals"
+    },
+    {
+      "iteration": 2,
+      "description": "Add approver authority validation",
+      "requiredChange": "Validate that each approver is authorized member of the team they're approving for",
+      "evidenceRequired": "Unauthorized approval attempts rejected, only team members can approve"
+    },
+    {
+      "iteration": 3,
+      "description": "Add team-specific quorum requirements",
+      "requiredChange": "Each required team must meet its own approval threshold (not just total count)",
+      "evidenceRequired": "Deployments rejected if any team doesn't meet its quorum requirement"
+    },
+    {
+      "iteration": 4,
+      "description": "Add approval expiration and revocation handling",
+      "requiredChange": "Implement approval expiration time window and proper revocation with notification",
+      "evidenceRequired": "Expired approvals rejected, revocations processed correctly, approvers notified"
+    }
+  ],
+  "haltCondition": "All admissibility rules satisfied: approver authority validated, team-specific quorum enforced, approval expiration handled, revocation properly processed, fail-closed on suspicious patterns"
+}

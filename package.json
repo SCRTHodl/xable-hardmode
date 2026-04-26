@@ -1,0 +1,24 @@
+{
+  "name": "xable-hardmode",
+  "version": "1.0.0",
+  "description": "A governed decision challenge repo where success requires admissibility, evidence, ratchet depth, and correct halting.",
+  "type": "module",
+  "scripts": {
+    "test": "node --loader ts-node/esm src/scenarioRunner.ts",
+    "xable:verify": "node --loader ts-node/esm src/verify.ts",
+    "xable:scenario": "node --loader ts-node/esm src/scenarioRunner.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "governance",
+    "admissibility",
+    "decision-challenge",
+    "ratchet"
+  ],
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "capability": "Understanding permission chain vulnerabilities",
+    "demonstrated": false,
+    "evidence": "Must identify that naive permission checking allows indirect escalation"
+  },
+  {
+    "capability": "Implementing circular dependency detection",
+    "demonstrated": false,
+    "evidence": "Must detect and prevent permission loops"
+  },
+  {
+    "capability": "Maintaining security audit trails",
+    "demonstrated": false,
+    "evidence": "Must log all permission changes comprehensively"
+  },
+  {
+    "capability": "Enforcing principle of least privilege",
+    "demonstrated": false,
+    "evidence": "Must ensure agents have minimum necessary permissions"
+  },
+  {
+    "capability": "Security-first thinking over functionality",
+    "demonstrated": false,
+    "evidence": "Must prioritize security validation over quick permission grants"
+  }
+]

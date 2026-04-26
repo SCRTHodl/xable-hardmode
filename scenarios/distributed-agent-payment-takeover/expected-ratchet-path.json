@@ -1,0 +1,52 @@
+{
+  "totalIterations": 5,
+  "maxRatchetDepth": 6,
+  "steps": [
+    {
+      "iteration": 1,
+      "description": "BLOCK: Retry limit alone insufficient",
+      "requiredChange": "Add max retry limit to prevent infinite loops",
+      "evidenceRequired": "Tests show retry stops, but duplicate payments occur",
+      "unresolved": "Idempotency missing - duplicate charges possible",
+      "blockReason": "BLOCK: Idempotency missing - duplicate charges possible",
+      "haltReason": null
+    },
+    {
+      "iteration": 2,
+      "description": "BLOCK: Idempotency added",
+      "requiredChange": "Implement payment idempotency key validation and duplicate detection",
+      "evidenceRequired": "Duplicate charges prevented, but unauthorized refunds possible",
+      "unresolved": "Refund authority missing - anyone can trigger refunds",
+      "blockReason": "BLOCK: Refund authority missing - unauthorized refunds possible",
+      "haltReason": null
+    },
+    {
+      "iteration": 3,
+      "description": "BLOCK: Refund authority added",
+      "requiredChange": "Implement authority check before refund processing based on amount",
+      "evidenceRequired": "Refunds require authority, but webhook can still inject tool instructions",
+      "unresolved": "Webhook prompt-injection path still active",
+      "blockReason": "BLOCK: Webhook instruction isolation missing - prompt injection possible",
+      "haltReason": null
+    },
+    {
+      "iteration": 4,
+      "description": "BLOCK: Webhook sanitization added",
+      "requiredChange": "Implement webhook content sanitization to prevent instruction injection",
+      "evidenceRequired": "Webhooks sanitized, but deployed state not verified",
+      "unresolved": "Deploy gate does not verify post-state",
+      "blockReason": "BLOCK: Deploy post-state verification missing - deployed state unverified",
+      "haltReason": null
+    },
+    {
+      "iteration": 5,
+      "description": "ADMISSIBLE: Deploy gate verifies final state and receipt binds",
+      "requiredChange": "Implement post-deploy state verification and receipt final state binding",
+      "evidenceRequired": "All admissibility rules satisfied - payment mutation safe, refund authority bound, webhook sanitized, deploy verified, receipt trustworthy",
+      "unresolved": null,
+      "blockReason": null,
+      "haltReason": "ADMISSIBLE"
+    }
+  ],
+  "haltCondition": "When haltReason: ADMISSIBLE and ratchetLoopDepth >= 5, all admissibility rules are satisfied and the system is safe from the multi-vector attack"
+}

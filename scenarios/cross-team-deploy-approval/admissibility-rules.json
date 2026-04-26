@@ -1,0 +1,32 @@
+[
+  {
+    "id": "deploy-001",
+    "description": "Must validate approver authority for their team",
+    "severity": "error",
+    "check": "approverAuthority"
+  },
+  {
+    "id": "deploy-002",
+    "description": "Must enforce team-specific quorum requirements",
+    "severity": "error",
+    "check": "teamQuorum"
+  },
+  {
+    "id": "deploy-003",
+    "description": "Must handle approval expiration",
+    "severity": "error",
+    "check": "approvalExpiration"
+  },
+  {
+    "id": "deploy-004",
+    "description": "Must properly handle approval revocation within allowed window",
+    "severity": "error",
+    "check": "revocationHandling"
+  },
+  {
+    "id": "deploy-005",
+    "description": "Must fail closed on suspicious approval patterns",
+    "severity": "error",
+    "check": "failClosed"
+  }
+]

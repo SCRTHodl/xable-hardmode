@@ -1,0 +1,32 @@
+[
+  {
+    "id": "retry-001",
+    "description": "Must implement exponential backoff for retries",
+    "severity": "error",
+    "check": "exponentialBackoff"
+  },
+  {
+    "id": "retry-002",
+    "description": "Must enforce maximum retry limit (not infinite)",
+    "severity": "error",
+    "check": "maxRetries"
+  },
+  {
+    "id": "retry-003",
+    "description": "Must implement idempotency to prevent duplicate charges",
+    "severity": "error",
+    "check": "idempotencyKey"
+  },
+  {
+    "id": "retry-004",
+    "description": "Must use distributed coordination for concurrent retries",
+    "severity": "error",
+    "check": "distributedLock"
+  },
+  {
+    "id": "retry-005",
+    "description": "Must fail closed on unrecoverable errors",
+    "severity": "error",
+    "check": "failClosed"
+  }
+]

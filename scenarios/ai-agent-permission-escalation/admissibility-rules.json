@@ -1,0 +1,32 @@
+[
+  {
+    "id": "perm-001",
+    "description": "Must validate entire permission chain, not just direct grants",
+    "severity": "error",
+    "check": "permissionChainValidation"
+  },
+  {
+    "id": "perm-002",
+    "description": "Must detect and reject circular permission dependencies",
+    "severity": "error",
+    "check": "circularDependencyDetection"
+  },
+  {
+    "id": "perm-003",
+    "description": "Must maintain comprehensive audit trail for all permission changes",
+    "severity": "error",
+    "check": "auditTrail"
+  },
+  {
+    "id": "perm-004",
+    "description": "Must enforce principle of least privilege",
+    "severity": "error",
+    "check": "leastPrivilege"
+  },
+  {
+    "id": "perm-005",
+    "description": "Must fail closed on suspicious permission chains",
+    "severity": "error",
+    "check": "failClosed"
+  }
+]

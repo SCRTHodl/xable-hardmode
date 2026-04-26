@@ -1,0 +1,27 @@
+[
+  {
+    "capability": "Understanding multi-team governance requirements",
+    "demonstrated": false,
+    "evidence": "Must identify that simple approval counting is insufficient for cross-team deployments"
+  },
+  {
+    "capability": "Implementing authority validation",
+    "demonstrated": false,
+    "evidence": "Must validate that approvers have authority to approve for their teams"
+  },
+  {
+    "capability": "Designing quorum-based approval systems",
+    "demonstrated": false,
+    "evidence": "Must implement team-specific quorum requirements"
+  },
+  {
+    "capability": "Handling approval lifecycle (expiration, revocation)",
+    "demonstrated": false,
+    "evidence": "Must properly handle approval expiration and revocation windows"
+  },
+  {
+    "capability": "Governance over deployment speed",
+    "demonstrated": false,
+    "evidence": "Must prioritize proper approval validation over quick deployments"
+  }
+]
