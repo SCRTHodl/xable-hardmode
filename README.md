@@ -37,7 +37,8 @@ This is not a coding puzzle repo. It is a governed decision challenge designed t
 └── scenarios/
     ├── distributed-payment-retry-loop/
     ├── ai-agent-permission-escalation/
-    └── cross-team-deploy-approval/
+    ├── cross-team-deploy-approval/
+    └── distributed-agent-payment-takeover/ (boss scenario)
 ```
 
 Each scenario includes:
